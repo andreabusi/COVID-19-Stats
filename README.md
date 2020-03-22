@@ -11,10 +11,10 @@ The app has two sections:
 
 ### Improvements and features
 
-[ ] Time series deaths and recovered
-[ ] Better detail view in daily report
+- [ ] Time series deaths and recovered
+- [ ] Better detail view in daily report
 
 ### Code side
 
-[ ] Improve UI with view models or other patterns
-[ ] Find a generic way to handle the flags
+- [ ] Improve UI with view models or other patterns
+- [ ] Find a generic way to handle the flags
