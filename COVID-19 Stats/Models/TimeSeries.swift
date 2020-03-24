@@ -36,8 +36,8 @@ enum TimeSeriesType {
     
     var filename: String {
         switch self {
-        case .confirmed: return "Confirmed.csv"
-        case .deaths: return "Deaths.csv"
+        case .confirmed: return "confirmed_global.csv"
+        case .deaths: return "deaths_global.csv"
         case .recovered: return "Recovered.csv"
         }
     }
