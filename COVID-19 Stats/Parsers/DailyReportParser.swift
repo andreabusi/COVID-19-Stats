@@ -12,11 +12,6 @@ import SwiftCSV
 
 class DailyReportParser {
 
-    private static let CsvHeaderProvinceState = "Country/Region"
-    private static let CsvHeaderConfirmed = "Confirmed"
-    private static let CsvHeaderDeaths = "Deaths"
-    private static let CsvHeaderRecovered = "Recovered"
-
     // MARK: - Init
     
     init() { }
@@ -27,9 +22,11 @@ class DailyReportParser {
         guard let csv = try? CSV(string: content, delimiter: ",", loadColumns: true) else { return [] }
 
         let rows = csv.namedRows
+        let headers = csv.header
+        let csvStructure = DailyReportStructure.structure(for: headers)
         
         // step 1: parse raw rows into DailyReport rows
-        let allReports = rows.compactMap { dailyReport(from: $0) }
+        let allReports = rows.compactMap { dailyReport(from: $0, for: csvStructure) }
         
         // step 2: group rows for country, we don't need data splitted by province/state
         var groupedReports = [DailyReport]()
@@ -60,12 +57,12 @@ class DailyReportParser {
     
     // MARK: - Private
     
-    private func dailyReport(from namedRow: [String: String]) -> DailyReport? {
+    private func dailyReport(from namedRow: [String: String], for structure: DailyReportStructure) -> DailyReport? {
         // check for required fields and create a DailyReport istance
-        guard   let countryName = namedRow[Self.CsvHeaderProvinceState],
-                let confirmedString = namedRow[Self.CsvHeaderConfirmed], let confirmed = Int(confirmedString),
-                let deathsString = namedRow[Self.CsvHeaderDeaths], let deaths = Int(deathsString),
-                let recoveredString = namedRow[Self.CsvHeaderRecovered], let recovered = Int(recoveredString) else {
+        guard   let countryName = namedRow[structure.headerProvinceState],
+                let confirmedString = namedRow[structure.headerConfirmed], let confirmed = Int(confirmedString),
+                let deathsString = namedRow[structure.headerDeaths], let deaths = Int(deathsString),
+                let recoveredString = namedRow[structure.headerRecovered], let recovered = Int(recoveredString) else {
             return nil
         }
         

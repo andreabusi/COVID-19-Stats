@@ -13,6 +13,7 @@
 		DC2D9C66241EA3B200E28292 /* DailyReportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D9C65241EA3B200E28292 /* DailyReportDetailView.swift */; };
 		DC2D9C68241EA55F00E28292 /* DailyReportRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D9C67241EA55F00E28292 /* DailyReportRow.swift */; };
 		DC2D9C6B241EA69E00E28292 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D9C6A241EA69E00E28292 /* Helpers.swift */; };
+		DC43279F242A21AC004A2822 /* DailyReportStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43279E242A21AC004A2822 /* DailyReportStructure.swift */; };
 		DC840DBB241E796D003B155B /* DailyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC840DBA241E796D003B155B /* DailyReport.swift */; };
 		DC840DBD241E79AB003B155B /* DailyReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC840DBC241E79AB003B155B /* DailyReportManager.swift */; };
 		DC9B6D62241FF0120076C832 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B6D61241FF0120076C832 /* Date+Extensions.swift */; };
@@ -39,6 +40,7 @@
 		DC2D9C65241EA3B200E28292 /* DailyReportDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportDetailView.swift; sourceTree = "<group>"; };
 		DC2D9C67241EA55F00E28292 /* DailyReportRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportRow.swift; sourceTree = "<group>"; };
 		DC2D9C6A241EA69E00E28292 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		DC43279E242A21AC004A2822 /* DailyReportStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportStructure.swift; sourceTree = "<group>"; };
 		DC840DBA241E796D003B155B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
 		DC840DBC241E79AB003B155B /* DailyReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportManager.swift; sourceTree = "<group>"; };
 		DC9B6D61241FF0120076C832 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				DC0C3715242512D4009C6CD7 /* DailyReportParser.swift */,
+				DC43279E242A21AC004A2822 /* DailyReportStructure.swift */,
 				DCE8FD7724262F5C00A164E6 /* TimeSeriesParser.swift */,
 			);
 			path = Parsers;
@@ -259,6 +262,7 @@
 				DC2D9C68241EA55F00E28292 /* DailyReportRow.swift in Sources */,
 				DC0C3716242512D4009C6CD7 /* DailyReportParser.swift in Sources */,
 				DC2D9C66241EA3B200E28292 /* DailyReportDetailView.swift in Sources */,
+				DC43279F242A21AC004A2822 /* DailyReportStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
