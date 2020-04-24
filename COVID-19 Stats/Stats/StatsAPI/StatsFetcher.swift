@@ -1,26 +1,23 @@
 //
-//  DataService.swift
+//  StatsFetcher.swift
 //  COVID-19 Stats
 //
-//  Created by Busi Andrea on 20/03/2020.
+//  Created by Busi Andrea on 24/04/2020.
 //  Copyright © 2020 BubiDevs. All rights reserved.
 //
 
 import Foundation
 
 
-class DataService {
-    enum DataServiceError: Error, LocalizedError {
-        case dailyReportNotFound
-        
-        var errorDescription: String? {
-            switch self {
-            case .dailyReportNotFound: return "Unable to get daily report for the given date"
-            }
-        }
-    }
-    
+protocol StatsFetchable {
+   func fetchDailyReport(for date: String, completion: @escaping (_ result: Result<[DailyReport], Error>) -> Void)
+   func fetchTimeSeries(for type: TimeSeriesType, completion: @escaping (_ result: Result<[TimeSeries], Error>) -> Void)
+}
+
+
+class StatsFetcher: StatsFetchable {    
     typealias DailyReportCompletion = (_ result: Result<[DailyReport], Error>) -> Void
+    typealias TimeSeriesCompletion = (_ result: Result<[TimeSeries], Error>) -> Void
     
     private let dailyReportsFolder: URL
     private let DailyReportUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/"
@@ -64,13 +61,13 @@ class DataService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(.failure(DataServiceError.dailyReportNotFound))
+                    completion(.failure(StatsFetcherError.dailyReportNotFound))
                 }
             }
         }
     }
     
-    public func fetchTimeSeries(for type: TimeSeriesType, completion: @escaping (_ result: Result<[TimeSeries], Error>) -> Void) {
+    public func fetchTimeSeries(for type: TimeSeriesType, completion: @escaping TimeSeriesCompletion) {
         // file is update every day with the same name, so we can't store it locally
         
         // download daily report from GitHub
@@ -87,7 +84,7 @@ class DataService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(.failure(DataServiceError.dailyReportNotFound))
+                    completion(.failure(StatsFetcherError.dailyReportNotFound))
                 }
             }
         }
@@ -98,15 +95,14 @@ class DataService {
     private func localDailyReport(for date: String) -> [DailyReport]? {
         let localFileURL = dailyReportsFolder.appendingPathComponent(filename(for: date))
         if FileManager.default.fileExists(atPath: localFileURL.path) {
-            print("[DataService] file trovato (data \(date))")
+            print("[DataService] local file found for date: \(date)")
             if let content = try? String(contentsOf: localFileURL) {
                 let parser = DailyReportParser()
                 let reports = parser.parseCsvContent(content)
-                print("[DataService] file trovato e record caricati (data \(date))")
                 return reports
             }
         }
-        print("[DataService] file non trovato (data \(date))")
+        print("[DataService] local file not available for date: \(date)")
         return nil
     }
     
@@ -114,7 +110,7 @@ class DataService {
         let localFileURL = dailyReportsFolder.appendingPathComponent(filename(for: date))
         if !FileManager.default.fileExists(atPath: localFileURL.path) {
             try? content.write(to: localFileURL, atomically: true, encoding: .utf8)
-            print("[DataService] file salvato per data \(date)")
+            print("[DataService] file saved locally for date: \(date)")
         }
     }
     

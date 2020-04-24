@@ -29,18 +29,26 @@ struct TimeSeries: Identifiable {
 }
 
 /// Type of a time series
-enum TimeSeriesType {
-    case confirmed
-    case deaths
-    case recovered
-    
-    var filename: String {
-        switch self {
-        case .confirmed: return "confirmed_global.csv"
-        case .deaths: return "deaths_global.csv"
-        case .recovered: return "Recovered.csv"
-        }
-    }
+enum TimeSeriesType: CaseIterable, CustomStringConvertible {
+   case confirmed
+   case deaths
+   case recovered
+   
+   var filename: String {
+      switch self {
+      case .confirmed:   return "confirmed_global.csv"
+      case .deaths:      return "deaths_global.csv"
+      case .recovered:   return "Recovered.csv"
+      }
+   }
+   
+   var description: String {
+      switch self {
+      case .confirmed:  return "Confirmed"
+      case .deaths:     return "Deaths"
+      case .recovered:  return "Recovered"
+      }
+   }
 }
 
 /// Daily value of a time series
@@ -49,7 +57,6 @@ struct TimeSeriesDay: Identifiable {
     
     let date: Date
     let value: Int
-    var evolution: Float = 0.0
     
     var id: TimeSeriesDay.ID {
         return date
