@@ -36,7 +36,7 @@ enum TimeSeriesType: CaseIterable, CustomStringConvertible {
       switch self {
       case .confirmed:   return "confirmed_global.csv"
       case .deaths:      return "deaths_global.csv"
-      case .recovered:   return "Recovered.csv"
+      case .recovered:   return "recovered_global.csv"
       }
    }
    
