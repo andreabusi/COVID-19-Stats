@@ -23,6 +23,7 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    @Published var date = Date().bud_adding(days: -1).bud_formatted()
    @Published var sort = StatsDailyReportSort.mostConfirmed
    @Published var dataSource = [StatsDailyReportRowViewModel]()
+   @Published var isLoadingData = false
    
    let allSorts: [StatsDailyReportSort]
    let allDates: [String]
@@ -50,7 +51,10 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    // MARK: - Private
    
    private func fetchDailyReport(for day: String) {
+      isLoadingData = true
       statsFetcher.fetchDailyReport(for: day) { [weak self] result in
+         defer { self?.isLoadingData = false }
+         
          guard let self = self else { return }
          
          switch result {

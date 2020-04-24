@@ -23,7 +23,11 @@ struct StatsTimeSeriesView: View {
       List {
          headerSection
          timeSeriesTypeSection
-         timeSeriesSection
+         if viewModel.isLoadingData {
+            loadingDataSection
+         } else {
+            timeSeriesSection
+         }
       }
       .onAppear(perform: viewModel.refresh)
       .navigationBarTitle("\(viewModel.country)")
@@ -63,6 +67,15 @@ struct StatsTimeSeriesView: View {
    private var timeSeriesSection: some View {
       Section {
          ForEach(viewModel.dataSource, content: StatsTimeSeriesRow.init(viewModel:))
+      }
+   }
+   
+   private var loadingDataSection: some View {
+      Section {
+         HStack {
+            ActivityIndicator(isAnimating: $viewModel.isLoadingData, style: .medium)
+            Text("Loading data...")
+         }
       }
    }
 }

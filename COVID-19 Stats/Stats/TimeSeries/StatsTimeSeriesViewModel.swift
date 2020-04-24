@@ -13,6 +13,7 @@ import Combine
 class StatsTimeSeriesViewModel: ObservableObject, Identifiable {
    @Published var dataSource = [StatsTimeSeriesRowViewModel]()
    @Published var seriesType = TimeSeriesType.confirmed
+   @Published var isLoadingData = false
    
    let allSeriesTypes: [TimeSeriesType]
    
@@ -60,7 +61,10 @@ class StatsTimeSeriesViewModel: ObservableObject, Identifiable {
    // MARK: - Private
    
    private func refresh(for type: TimeSeriesType) {
+      isLoadingData = true
       statsFetcher.fetchTimeSeries(for: type) { [weak self] result in
+         defer { self?.isLoadingData = false }
+         
          guard let self = self else { return }
          
          switch result {

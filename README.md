@@ -19,7 +19,7 @@ The app has two sections:
 * [x] Time series deaths and recovered
 * [x] Better detail view in daily report
 * [ ] Refresh data when app is opened from a background status
-* [ ] Add a loading when data is downloading
+* [x] Add a loading when data is downloading
 
 ### Code side
 

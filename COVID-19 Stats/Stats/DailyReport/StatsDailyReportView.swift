@@ -25,7 +25,9 @@ struct StatsDailyReportView: View {
          Form {
             filtersSection
             
-            if viewModel.dataSource.isEmpty {
+            if viewModel.isLoadingData {
+               loadingDataSection
+            } else if viewModel.dataSource.isEmpty {
                emptySection
             } else {
                dailyReportSection
@@ -68,6 +70,15 @@ struct StatsDailyReportView: View {
          VStack {
             Image(systemName: "tray")
             Text("There are no data for the selected date")
+         }
+      }
+   }
+   
+   private var loadingDataSection: some View {
+      Section {
+         HStack {
+            ActivityIndicator(isAnimating: $viewModel.isLoadingData, style: .medium)
+            Text("Loading data...")
          }
       }
    }
