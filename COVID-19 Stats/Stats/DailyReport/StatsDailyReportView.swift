@@ -68,9 +68,23 @@ struct StatsDailyReportView: View {
    var emptySection: some View {
       Section {
          VStack {
-            Image(systemName: "tray")
-            Text("There are no data for the selected date")
+            HStack {
+               Spacer()
+               Image(systemName: "tray")
+                  .resizable()
+                  .frame(width: 40.0, height: 40.0, alignment: .center)
+                  .foregroundColor(.gray)
+               Spacer()
+            }
+            HStack {
+               Spacer()
+               Text("There are no data for the selected date")
+                  .multilineTextAlignment(.center)
+                  .foregroundColor(.gray)
+               Spacer()
+            }
          }
+         .padding(10)
       }
    }
    
