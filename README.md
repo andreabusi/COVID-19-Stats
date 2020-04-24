@@ -11,16 +11,18 @@ The app has two sections:
 
 <img src="screenshots/screen_01.PNG" height="500px">
 <img src="screenshots/screen_02.PNG" height="500px">
-<img src="screenshots/screen_03.PNG" height="500px">
 
 ## ToDo
 
 ### Improvements and features
 
-* [ ] Time series deaths and recovered
-* [ ] Better detail view in daily report
+* [x] Time series deaths and recovered
+* [x] Better detail view in daily report
+* [ ] Refresh data when app is opened from a background status
+* [ ] Add a loading when data is downloading
 
 ### Code side
 
-* [ ] Improve UI with view models or other patterns
+* [x] Improve UI with view models or other patterns
 * [ ] Find a generic way to handle the flags
+* [ ] Handle properly date selection (not with string objects)
