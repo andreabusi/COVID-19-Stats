@@ -12,11 +12,13 @@ import Foundation
 class StatsDailyReportRowViewModel: Identifiable {
    
    let report: DailyReport
+   private let flag: String?
    
    // MARK: - Init
    
    init(report: DailyReport) {
       self.report = report
+      self.flag = Helpers.flag(for: report.country)
    }
    
    // MARK: - Accessories
@@ -26,10 +28,10 @@ class StatsDailyReportRowViewModel: Identifiable {
    }
    
    var title: String {
-      if report.flag.isEmpty {
-          return report.country
+      if let flag = flag {
+          return "\(flag) \(report.country)"
       }
-      return "\(report.flag) \(report.country)"
+      return report.country
    }
    
    var subtitle: String {

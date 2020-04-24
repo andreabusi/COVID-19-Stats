@@ -15,7 +15,6 @@ struct TimeSeries: Identifiable {
     let id = UUID()
     let type: TimeSeriesType
     let country: String
-    let flag: String
     var days: [TimeSeriesDay]
     
     // MARK: - Init
@@ -23,7 +22,6 @@ struct TimeSeries: Identifiable {
     init(type: TimeSeriesType = .confirmed, country: String, days: [TimeSeriesDay]) {
         self.type = type
         self.country = country
-        self.flag = Helpers.flag(for: country)
         self.days = days
     }
 }

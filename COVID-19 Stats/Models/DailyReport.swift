@@ -15,7 +15,6 @@ struct DailyReport: Identifiable {
     
     let id = UUID()
     var country: String
-    var flag: String
     var confirmed: Int
     var deaths: Int
     var recovered: Int
@@ -24,7 +23,6 @@ struct DailyReport: Identifiable {
     
     init(country: String, confirmed: Int, deaths: Int, recovered: Int) {
         self.country = country
-        self.flag = Helpers.flag(for: country)
         self.confirmed = confirmed
         self.deaths = deaths
         self.recovered = recovered
