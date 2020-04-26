@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftFlags
 
 
 class StatsDailyReportRowViewModel: Identifiable {
@@ -18,7 +19,7 @@ class StatsDailyReportRowViewModel: Identifiable {
    
    init(report: DailyReport) {
       self.report = report
-      self.flag = Helpers.flag(for: report.country)
+      self.flag = SwiftFlags.flag(for: report.country)
    }
    
    // MARK: - Accessories
