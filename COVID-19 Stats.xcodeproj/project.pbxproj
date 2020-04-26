@@ -28,6 +28,7 @@
 		DCC473882452DE34002F2314 /* StatsDailyReportRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC473872452DE34002F2314 /* StatsDailyReportRowViewModel.swift */; };
 		DCC4738B2452E75F002F2314 /* StatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4738A2452E75F002F2314 /* StatsFetcher.swift */; };
 		DCC4738E2452EED4002F2314 /* StatsTimeSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4738D2452EED4002F2314 /* StatsTimeSeriesView.swift */; };
+		DCC70E682455E68E00995453 /* SwiftFlags in Frameworks */ = {isa = PBXBuildFile; productRef = DCC70E672455E68E00995453 /* SwiftFlags */; };
 		DCE4638E241D57EB00B8940D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4638D241D57EB00B8940D /* AppDelegate.swift */; };
 		DCE46390241D57EB00B8940D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4638F241D57EB00B8940D /* SceneDelegate.swift */; };
 		DCE46394241D57EF00B8940D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE46393241D57EF00B8940D /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC70E682455E68E00995453 /* SwiftFlags in Frameworks */,
 				DCA2ABD9242659EC000C9156 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +244,7 @@
 			name = "COVID-19 Stats";
 			packageProductDependencies = (
 				DCA2ABD8242659EC000C9156 /* SwiftCSV */,
+				DCC70E672455E68E00995453 /* SwiftFlags */,
 			);
 			productName = "COVID-19 Stats";
 			productReference = DCE4638A241D57EB00B8940D /* COVID-19.app */;
@@ -273,6 +276,7 @@
 			mainGroup = DCE46381241D57EB00B8940D;
 			packageReferences = (
 				DCA2ABD7242659EC000C9156 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				DCC70E662455E68E00995453 /* XCRemoteSwiftPackageReference "SwiftFlags" */,
 			);
 			productRefGroup = DCE4638B241D57EB00B8940D /* Products */;
 			projectDirPath = "";
@@ -534,6 +538,14 @@
 				minimumVersion = 0.5.5;
 			};
 		};
+		DCC70E662455E68E00995453 /* XCRemoteSwiftPackageReference "SwiftFlags" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BubiDevs/SwiftFlags";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -541,6 +553,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DCA2ABD7242659EC000C9156 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
 			productName = SwiftCSV;
+		};
+		DCC70E672455E68E00995453 /* SwiftFlags */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCC70E662455E68E00995453 /* XCRemoteSwiftPackageReference "SwiftFlags" */;
+			productName = SwiftFlags;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

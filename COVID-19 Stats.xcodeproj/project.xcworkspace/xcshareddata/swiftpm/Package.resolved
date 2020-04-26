@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/swiftcsv/SwiftCSV",
         "state": {
           "branch": null,
-          "revision": "b581e5c364f5ea0f48d3073321b373afcf078bf8",
-          "version": "0.5.5"
+          "revision": "8ae14758a2019fd55dc6f9b6ecbbe246bcef179f",
+          "version": "0.5.6"
+        }
+      },
+      {
+        "package": "SwiftFlags",
+        "repositoryURL": "https://github.com/BubiDevs/SwiftFlags",
+        "state": {
+          "branch": null,
+          "revision": "4337fc46ac954e9abe5d316fa2f53cc37c70efe5",
+          "version": "1.1.1"
         }
       }
     ]
