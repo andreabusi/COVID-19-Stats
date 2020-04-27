@@ -2,10 +2,13 @@
 
 This is a sample SwiftUI project that shows COVID-19 data provided by **Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)**. The official data are available on the official [GiHub repository](https://github.com/CSSEGISandData/COVID-19).
 
-The app has two sections:
+Basically the app allows to display the daily report with confirmed cases, deaths and recovered.
 
-* Daily report: shows the daily report for a selected date. Is possible to sort by country, deaths or confirmed cases.
-* Time series: allows to show the daily evolution for confirmed cases for every single country
+Main features of the app are:
+
+* Ability to show the data for a given date
+* Filter the daily reports by confirmed cases, deaths and recovered
+* Display data evolution for every country (time series)
 
 ## Screenshots
 
@@ -18,11 +21,13 @@ The app has two sections:
 
 * [x] Time series deaths and recovered
 * [x] Better detail view in daily report
-* [ ] Refresh data when app is opened from a background status
 * [x] Add a loading when data is downloading
+* [ ] Refresh data when app is opened from a background status
+* [ ] Add search bar in the main view
+* [x] Select date from the first data available on the remote data
 
 ### Code side
 
 * [x] Improve UI with view models or other patterns
-* [ ] Find a generic way to handle the flags
-* [ ] Handle properly date selection (not with string objects)
+* [x] Find a generic way to handle the flags
+* [x] Handle properly date selection (not with string objects)
