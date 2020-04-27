@@ -18,6 +18,19 @@ extension Date {
         return today.bud_previousDate()
     }
     
+    /// Creates array with date objects from start date to end date
+    static func bud_dates(from fromDate: Date, to toDate: Date) -> [Date] {
+        var dates: [Date] = []
+        var date = fromDate
+      
+        while date <= toDate {
+            dates.append(date)
+            guard let newDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else { break }
+            date = newDate
+        }
+        return dates
+    }
+   
     // MARK: - Public
     
     func bud_previousDate() -> Date {

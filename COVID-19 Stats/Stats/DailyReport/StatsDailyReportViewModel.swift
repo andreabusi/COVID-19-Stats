@@ -36,7 +36,7 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    init(statsFetcher: StatsFetchable) {
       self.statsFetcher = statsFetcher
       self.allSorts = StatsDailyReportSort.allCases
-      self.allDates = (0..<30).map { Date().bud_adding(days: -$0) }
+      self.allDates = Date.bud_dates(from: Constants.dailyReportStartDate, to: Date()).reversed()
       self.date = allDates[1]
       
       $date
