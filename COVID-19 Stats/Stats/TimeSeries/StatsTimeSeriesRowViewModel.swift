@@ -24,10 +24,7 @@ class StatsTimeSeriesRowViewModel: Identifiable {
    // MARK: - Accessories
    
    var date: String {
-      let formatter = DateFormatter()
-      formatter.timeStyle = .none
-      formatter.dateStyle = .short
-      return formatter.string(from: timeSeriesDay.date)
+      return Helpers.displayDateFormatter.string(from: timeSeriesDay.date)
    }
    
    var value: Int {

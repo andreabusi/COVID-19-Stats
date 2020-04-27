@@ -21,9 +21,10 @@ struct StatsTimeSeriesRow: View {
    
    var body: some View {
       HStack {
-         Text(viewModel.date)
-         Spacer()
-         Text("\(viewModel.value)")
+         VStack {
+            Text("\(viewModel.value)").font(.headline)
+            Text(viewModel.date).font(.caption)
+         }
          Spacer()
          evolution
       }
