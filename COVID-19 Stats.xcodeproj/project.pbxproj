@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DC0C3716242512D4009C6CD7 /* DailyReportParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C3715242512D4009C6CD7 /* DailyReportParser.swift */; };
-		DC2D9C6B241EA69E00E28292 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D9C6A241EA69E00E28292 /* Helpers.swift */; };
 		DC43279F242A21AC004A2822 /* DailyReportStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43279E242A21AC004A2822 /* DailyReportStructure.swift */; };
 		DC840DBB241E796D003B155B /* DailyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC840DBA241E796D003B155B /* DailyReport.swift */; };
 		DC8B7F892452F4B0007176AE /* StatsTimeSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B7F882452F4B0007176AE /* StatsTimeSeriesViewModel.swift */; };
@@ -36,12 +35,12 @@
 		DCE4639A241D57EF00B8940D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE46398241D57EF00B8940D /* LaunchScreen.storyboard */; };
 		DCE8FD7624262ADA00A164E6 /* TimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE8FD7524262ADA00A164E6 /* TimeSeries.swift */; };
 		DCE8FD7824262F5C00A164E6 /* TimeSeriesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE8FD7724262F5C00A164E6 /* TimeSeriesParser.swift */; };
+		DCFF89BF245742A800309AE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFF89BE245742A800309AE3 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DC0AF4EF2424115B0040FEF3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DC0C3715242512D4009C6CD7 /* DailyReportParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportParser.swift; sourceTree = "<group>"; };
-		DC2D9C6A241EA69E00E28292 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DC43279E242A21AC004A2822 /* DailyReportStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportStructure.swift; sourceTree = "<group>"; };
 		DC840DBA241E796D003B155B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
 		DC8B7F882452F4B0007176AE /* StatsTimeSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTimeSeriesViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		DCE4639B241D57EF00B8940D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE8FD7524262ADA00A164E6 /* TimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeries.swift; sourceTree = "<group>"; };
 		DCE8FD7724262F5C00A164E6 /* TimeSeriesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesParser.swift; sourceTree = "<group>"; };
+		DCFF89BE245742A800309AE3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +87,11 @@
 		DC8B7F9024530251007176AE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DCFF89BE245742A800309AE3 /* Constants.swift */,
 				DC8B7F9D24533B58007176AE /* UIKit Views */,
 				DC8B7F9424530DB6007176AE /* Previews */,
 				DC8B7F922453026A007176AE /* Parsing */,
 				DC8B7F912453025D007176AE /* Extensions */,
-				DC2D9C6A241EA69E00E28292 /* Helpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCFF89BF245742A800309AE3 /* Constants.swift in Sources */,
 				DC8B7F892452F4B0007176AE /* StatsTimeSeriesViewModel.swift in Sources */,
 				DCC4738E2452EED4002F2314 /* StatsTimeSeriesView.swift in Sources */,
 				DC8B7F9C245324D8007176AE /* StatsFetcherError.swift in Sources */,
@@ -318,7 +319,6 @@
 				DC8B7F8B2452F7C6007176AE /* StatsTimeSeriesRowViewModel.swift in Sources */,
 				DCC473822452DD5F002F2314 /* StatsDailyReportView.swift in Sources */,
 				DC8B7F8F2452FC5F007176AE /* StastDailyReportBuilder.swift in Sources */,
-				DC2D9C6B241EA69E00E28292 /* Helpers.swift in Sources */,
 				DCE8FD7824262F5C00A164E6 /* TimeSeriesParser.swift in Sources */,
 				DCC4738B2452E75F002F2314 /* StatsFetcher.swift in Sources */,
 				DC840DBB241E796D003B155B /* DailyReport.swift in Sources */,

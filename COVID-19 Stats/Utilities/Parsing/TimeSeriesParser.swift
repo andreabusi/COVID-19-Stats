@@ -55,7 +55,7 @@ class TimeSeriesParser {
             
             // create a TimeSeries object with the total value and the date
             let days = countryTotals.compactMap { (day, value) -> TimeSeriesDay? in
-                guard let date = Helpers.fileDateFormatter.date(from: day) else {
+                guard let date = Constants.fileDateFormatter.date(from: day) else {
                     return nil
                 }
                 return TimeSeriesDay(date: date, value: value)

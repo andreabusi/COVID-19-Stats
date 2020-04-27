@@ -24,7 +24,7 @@ class StatsTimeSeriesRowViewModel: Identifiable {
    // MARK: - Accessories
    
    var date: String {
-      return Helpers.displayDateFormatter.string(from: timeSeriesDay.date)
+      return Constants.displayDateFormatter.string(from: timeSeriesDay.date)
    }
    
    var value: Int {

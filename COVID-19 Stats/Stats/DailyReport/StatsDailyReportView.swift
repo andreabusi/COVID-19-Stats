@@ -98,7 +98,7 @@ struct StatsDailyReportView: View {
    }
    
    private func formatted(date: Date) -> String {
-      return Helpers.displayDateFormatter.string(from: date)
+      return Constants.displayDateFormatter.string(from: date)
    }
 }
 
