@@ -43,7 +43,7 @@ struct StatsDailyReportView: View {
       Section {
          Picker(selection: $viewModel.date, label: Text("Select a date")) {
             ForEach(viewModel.allDates, id: \.self) {
-                Text("\($0)").tag($0)
+               Text(self.formatted(date: $0)).tag($0)
             }
          }
          
@@ -95,6 +95,10 @@ struct StatsDailyReportView: View {
             Text("Loading data...")
          }
       }
+   }
+   
+   private func formatted(date: Date) -> String {
+      return Helpers.displayDateFormatter.string(from: date)
    }
 }
 

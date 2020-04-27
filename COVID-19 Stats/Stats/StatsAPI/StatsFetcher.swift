@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol StatsFetchable {
-   func fetchDailyReport(for date: String, completion: @escaping (_ result: Result<[DailyReport], Error>) -> Void)
+   func fetchDailyReport(for date: Date, completion: @escaping (_ result: Result<[DailyReport], Error>) -> Void)
    func fetchTimeSeries(for type: TimeSeriesType, completion: @escaping (_ result: Result<[TimeSeries], Error>) -> Void)
 }
 
@@ -39,9 +39,13 @@ class StatsFetcher: StatsFetchable {
     
     // MARK: - Public
     
-    public func fetchDailyReport(for date: String, completion: @escaping DailyReportCompletion) {
+    public func fetchDailyReport(for date: Date, completion: @escaping DailyReportCompletion) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let stringDate = formatter.string(from: date)
+      
         // check for local cached data
-        if let reports = localDailyReport(for: date) {
+        if let reports = localDailyReport(for: stringDate) {
             completion(.success(reports))
             return
         }
@@ -50,12 +54,12 @@ class StatsFetcher: StatsFetchable {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let `self` = self else { return }
             
-            let name = self.filename(for: date)
+            let name = self.filename(for: stringDate)
             let fileURL = URL(string: "\(self.DailyReportUrl)\(name)")!
             if let dataContent = try? Data(contentsOf: fileURL), let content = String(data: dataContent, encoding: .utf8) {
                 let parser = DailyReportParser()
                 let reports = parser.parseCsvContent(content)
-                self.saveDownloadedDailyReport(with: content, for: date)
+                self.saveDownloadedDailyReport(with: content, for: stringDate)
                 DispatchQueue.main.async {
                     completion(.success(reports))
                 }

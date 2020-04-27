@@ -20,13 +20,13 @@ enum StatsDailyReportSort: CaseIterable {
 }
 
 class StatsDailyReportViewModel: ObservableObject, Identifiable {
-   @Published var date = Date().bud_adding(days: -1).bud_formatted()
+   @Published var date: Date
    @Published var sort = StatsDailyReportSort.mostConfirmed
    @Published var dataSource = [StatsDailyReportRowViewModel]()
    @Published var isLoadingData = false
    
    let allSorts: [StatsDailyReportSort]
-   let allDates: [String]
+   let allDates: [Date]
    
    let statsFetcher: StatsFetchable
    private var disposables = Set<AnyCancellable>()
@@ -36,10 +36,10 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    init(statsFetcher: StatsFetchable) {
       self.statsFetcher = statsFetcher
       self.allSorts = StatsDailyReportSort.allCases
-      self.allDates = (0..<30).map { Date().bud_adding(days: -$0).bud_formatted() }
+      self.allDates = (0..<30).map { Date().bud_adding(days: -$0) }
+      self.date = allDates[1]
       
       $date
-         .filter { !$0.isEmpty }
          .sink(receiveValue: fetchDailyReport(for:))
          .store(in: &disposables)
       
@@ -50,9 +50,9 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    
    // MARK: - Private
    
-   private func fetchDailyReport(for day: String) {
+   private func fetchDailyReport(for date: Date) {
       isLoadingData = true
-      statsFetcher.fetchDailyReport(for: day) { [weak self] result in
+      statsFetcher.fetchDailyReport(for: date) { [weak self] result in
          defer { self?.isLoadingData = false }
          
          guard let self = self else { return }

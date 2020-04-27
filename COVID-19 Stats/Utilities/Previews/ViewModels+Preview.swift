@@ -10,7 +10,7 @@ import Foundation
 
 
 class StatsPreviewFetcher: StatsFetchable {
-   func fetchDailyReport(for date: String, completion: @escaping (Result<[DailyReport], Error>) -> Void) {
+   func fetchDailyReport(for date: Date, completion: @escaping (Result<[DailyReport], Error>) -> Void) {
       completion(.success([]))
    }
    
