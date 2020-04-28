@@ -27,6 +27,13 @@ enum Constants {
       return formatter
    }()
    
+   /// Returns the formatter to use when display decimal numbers
+   static var displayNumberFormatter: NumberFormatter = {
+      let formatter = NumberFormatter()
+      formatter.numberStyle = .decimal
+      return formatter
+   }()
+   
    /// Date with first data available on the remote CSV
    static var dailyReportStartDate: Date = {
       var components = DateComponents()

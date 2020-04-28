@@ -36,6 +36,6 @@ class StatsDailyReportRowViewModel: Identifiable {
    }
    
    var subtitle: String {
-      "\(report.confirmed) confirmed, \(report.deaths) deaths"
+      "\(report.confirmed.formatted) confirmed, \(report.deaths.formatted) deaths"
    }
 }
