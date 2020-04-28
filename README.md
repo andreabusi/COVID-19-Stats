@@ -23,7 +23,7 @@ Main features of the app are:
 * [x] Better detail view in daily report
 * [x] Add a loading when data is downloading
 * [ ] Refresh data when app is opened from a background status
-* [ ] Add search bar in the main view
+* [x] Add search bar in the main view
 * [x] Select date from the first data available on the remote data
 
 ### Code side

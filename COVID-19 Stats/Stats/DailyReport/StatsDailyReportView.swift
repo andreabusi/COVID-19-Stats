@@ -11,6 +11,7 @@ import SwiftUI
 
 struct StatsDailyReportView: View {
    @ObservedObject var viewModel: StatsDailyReportViewModel
+   @State var searchText: String = ""
    
    // MARK: - Init
    
@@ -22,15 +23,18 @@ struct StatsDailyReportView: View {
    
    var body: some View {
       NavigationView {
-         Form {
-            filtersSection
-            
-            if viewModel.isLoadingData {
-               loadingDataSection
-            } else if viewModel.dataSource.isEmpty {
-               emptySection
-            } else {
-               dailyReportSection
+         VStack {
+            SearchBar(text: $searchText, placeholder: "Search a country")
+            Form {
+               filtersSection
+               
+               if viewModel.isLoadingData {
+                  loadingDataSection
+               } else if viewModel.dataSource.isEmpty {
+                  emptySection
+               } else {
+                  dailyReportSection
+               }
             }
          }
          .navigationBarTitle("Daily Report")
@@ -57,11 +61,19 @@ struct StatsDailyReportView: View {
    
    var dailyReportSection: some View {
       Section {
-         List(viewModel.dataSource) { row in
+         List(filteredDataSource) { row in
             NavigationLink(destination: row.timeSeriesView(with: self.viewModel.statsFetcher)) {
                StatsDailyReportRow(viewModel: row)
             }
          }
+      }
+   }
+   
+   var filteredDataSource: [StatsDailyReportRowViewModel] {
+      return viewModel.dataSource.filter { (rowViewModel) -> Bool in
+         self.searchText.isEmpty
+            ? true
+            : rowViewModel.title.lowercased().contains(searchText.lowercased())
       }
    }
    
