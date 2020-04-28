@@ -12,8 +12,8 @@ Main features of the app are:
 
 ## Screenshots
 
-<img src="screenshots/screen_01.PNG" height="500px">
-<img src="screenshots/screen_02.PNG" height="500px">
+<img src="screenshots/screen_01_202004280804.png" height="500px">
+<img src="screenshots/screen_02_202004280804.png" height="500px">
 
 ## ToDo
 
