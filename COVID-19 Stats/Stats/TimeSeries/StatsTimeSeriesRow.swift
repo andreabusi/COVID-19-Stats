@@ -21,7 +21,7 @@ struct StatsTimeSeriesRow: View {
    
    var body: some View {
       HStack {
-         VStack {
+         VStack(alignment: .leading) {
             Text("\(viewModel.value)").font(.headline)
             Text(viewModel.date).font(.caption)
          }
