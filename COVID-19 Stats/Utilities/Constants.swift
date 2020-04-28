@@ -33,7 +33,7 @@ enum Constants {
       components.day = 22
       components.month = 1
       components.year = 2020
-      components.hour = 12
+      components.hour = 0
       components.minute = 0
       return Calendar.current.date(from: components)!
    }()
