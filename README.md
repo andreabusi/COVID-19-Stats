@@ -12,8 +12,18 @@ Main features of the app are:
 
 ## Screenshots
 
-<img src="screenshots/screen_01_202004280804.png" height="500px">
-<img src="screenshots/screen_02_202004280804.png" height="500px">
+### iPhone
+
+<div>
+<img src="screenshots/iphone_screen_01.png" height="500px" style="float: right;">
+<img src="screenshots/iphone_screen_02.png" height="500px">
+</div>
+
+### iPad
+
+<div>
+<img src="screenshots/ipad_screen_01.png" width="700px" style="float: right;">
+</div>
 
 ## ToDo
 
