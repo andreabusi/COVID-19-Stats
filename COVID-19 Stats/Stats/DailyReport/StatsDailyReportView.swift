@@ -39,6 +39,8 @@ struct StatsDailyReportView: View {
          }
          .navigationBarTitle("Daily Report")
       }
+      .navigationViewStyle(DoubleColumnNavigationViewStyle())
+      .padding(.leading, leadingPadding)
    }
    
    // MARK: - Private
@@ -111,6 +113,11 @@ struct StatsDailyReportView: View {
    
    private func formatted(date: Date) -> String {
       return Constants.displayDateFormatter.string(from: date)
+   }
+   
+   /// This is a workaround to always show master controller on iPad split view
+   private var leadingPadding: CGFloat {
+      UIDevice.current.userInterfaceIdiom == .pad ? 0.5 : 0.0
    }
 }
 
