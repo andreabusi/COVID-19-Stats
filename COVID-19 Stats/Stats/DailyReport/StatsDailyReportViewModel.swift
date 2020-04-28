@@ -72,14 +72,13 @@ class StatsDailyReportViewModel: ObservableObject, Identifiable {
    }
    
    private func sorted(rows: [StatsDailyReportRowViewModel], by sort: StatsDailyReportSort) -> [StatsDailyReportRowViewModel] {
-      // todo: possiamo usare keyPath?
       switch sort {
-      case .alphabeticAscending:    return rows.sorted(by: { $0.report.country < $1.report.country })
-      case .alphabeticDescending:   return rows.sorted(by: { $0.report.country > $1.report.country })
-      case .mostConfirmed:          return rows.sorted(by: { $0.report.confirmed > $1.report.confirmed })
-      case .lessConfirmed:          return rows.sorted(by: { $0.report.confirmed < $1.report.confirmed })
-      case .mostDeaths:             return rows.sorted(by: { $0.report.deaths > $1.report.deaths })
-      case .lessDeaths:             return rows.sorted(by: { $0.report.deaths < $1.report.deaths })
+      case .alphabeticDescending:   return rows.sorted(by: \.report.country).reversed()
+      case .alphabeticAscending:    return rows.sorted(by: \.report.country)
+      case .mostConfirmed:          return rows.sorted(by: \.report.confirmed).reversed()
+      case .lessConfirmed:          return rows.sorted(by: \.report.confirmed)
+      case .mostDeaths:             return rows.sorted(by: \.report.deaths).reversed()
+      case .lessDeaths:             return rows.sorted(by: \.report.deaths)
       }
    }
 }
