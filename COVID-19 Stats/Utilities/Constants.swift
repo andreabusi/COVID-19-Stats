@@ -34,6 +34,14 @@ enum Constants {
       return formatter
    }()
    
+   /// Returns the formatter to use when display percentage numbers
+   static var displayPercentageFormatter: NumberFormatter = {
+      let formatter = NumberFormatter()
+      formatter.numberStyle = .percent
+      formatter.maximumFractionDigits = 2
+      return formatter
+   }()
+   
    /// Date with first data available on the remote CSV
    static var dailyReportStartDate: Date = {
       var components = DateComponents()

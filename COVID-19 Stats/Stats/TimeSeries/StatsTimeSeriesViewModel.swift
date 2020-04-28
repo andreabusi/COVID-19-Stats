@@ -91,9 +91,14 @@ class StatsTimeSeriesViewModel: ObservableObject, Identifiable {
             if index < days.count - 1 {
                let currentDayValue = element.value
                let previousDayValue = sortedDays[index + 1].value
-               let evolution = (Float(currentDayValue - previousDayValue) / Float(previousDayValue))
                
-               viewModel.evolution = evolution
+               if currentDayValue == 0 || previousDayValue == 0 {
+                  // real math value doesn't make sense, just use it as nan
+                  viewModel.evolution = nil
+               } else {
+                  let evolution = (Float(currentDayValue - previousDayValue) / Float(previousDayValue))
+                  viewModel.evolution = evolution
+               }
             }
             return viewModel
          }
@@ -101,9 +106,10 @@ class StatsTimeSeriesViewModel: ObservableObject, Identifiable {
       // check if the evolution has decreased against previous day
       viewModels.enumerated().forEach { (index, element) in
          if index < days.count - 1 {
-            let currentDayEvolution = element.evolution
-            let previousDayEvolution = viewModels[index + 1].evolution
-            viewModels[index].hasDecreased = currentDayEvolution <= previousDayEvolution
+            if let currentDayEvolution = element.evolution,
+               let previousDayEvolution = viewModels[index + 1].evolution {
+               viewModels[index].hasDecreased = currentDayEvolution <= previousDayEvolution
+            }
          }
       }
       

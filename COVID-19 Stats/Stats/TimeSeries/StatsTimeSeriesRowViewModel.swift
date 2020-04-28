@@ -11,14 +11,13 @@ import Foundation
 
 class StatsTimeSeriesRowViewModel: Identifiable {
    let timeSeriesDay: TimeSeriesDay
-   var evolution: Float = 0.0
+   var evolution: Float?
    var hasDecreased = false
    
    // MARK: - Init
    
    init(timeSeriesDay: TimeSeriesDay) {
       self.timeSeriesDay = timeSeriesDay
-
    }
    
    // MARK: - Accessories
@@ -29,5 +28,17 @@ class StatsTimeSeriesRowViewModel: Identifiable {
    
    var value: Int {
       timeSeriesDay.value
+   }
+   
+   var percentage: String {
+      guard let evolution = evolution else {
+         return ""
+      }
+      
+      guard let percentageFormatted = Constants.displayPercentageFormatter.string(from: evolution as NSNumber) else {
+         return ""
+      }
+      
+      return percentageFormatted
    }
 }

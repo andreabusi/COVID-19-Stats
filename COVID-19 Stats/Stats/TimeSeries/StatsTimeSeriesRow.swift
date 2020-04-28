@@ -31,14 +31,13 @@ struct StatsTimeSeriesRow: View {
    }
    
    private var evolution: some View {
-      if viewModel.evolution == Float.nan || viewModel.evolution == Float.infinity {
+      let percentage = viewModel.percentage
+      if percentage.isEmpty {
          return Text("-")
       }
       
-      let percentage = viewModel.evolution * 100
       let arrow = viewModel.hasDecreased ? "↓" : "↑"
-      let formatted = String(format: "%@ %.2f %%", arrow, percentage)
-      return Text("\(formatted)").foregroundColor(viewModel.hasDecreased ? .green : .red)
+      return Text("\(arrow) \(percentage)").foregroundColor(viewModel.hasDecreased ? .green : .red)
    }
 }
 
